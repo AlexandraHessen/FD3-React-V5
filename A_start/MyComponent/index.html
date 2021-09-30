@@ -6,7 +6,7 @@
 </head> 
 <body> 
   <div id="container"></div> 
-      
+      <!-- внутри этого div будет жить react  -->
   <script src="https://unpkg.com/react@15/dist/react.js"></script> 
   <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script> 
       
@@ -14,6 +14,9 @@
   <link rel="stylesheet" type="text/css" href="MyComponent.css" />
 
   <script>
+
+      // ReactDOM.render(React-элемент, DOM-элемент)
+      // отрисовать созданный React-элемент внутри указанного DOM-элемента
 
     ReactDOM.render(
       React.createElement(MyComponent), 

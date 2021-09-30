@@ -1,5 +1,15 @@
-﻿var VotesBlock = React.createClass({
+﻿// Описание нового компонента с именем ИмяКомпонента:
 
+// var ИмяКомпонента = React.createClass({
+//   displayName: "отображаемое имя компонента",
+//   render: function () {
+//     return React.createElement(...);
+//   },
+// })
+
+var VotesBlock = React.createClass({
+// react все делит на стандартные теги и наши компоненты
+// все стандартные теги с маленькой буквы наши компоненты всегда с Большой
   displayName: 'VotesBlock',
 
   getDefaultProps: function() {
@@ -18,8 +28,13 @@
         );
       answersCode.push(answerCode);
     }
+
+    // render возвращает всегда только 1 тег, если нужно больше обаращиваем все в div
     return React.DOM.div( {className:'VotesBlock'}, 
+    //первый всегда атрибуты
+    // все остальные параменты это содержимое ( второй и тд)
       React.DOM.div( {className:'Question'}, this.props.question ),
+      // все что передано мне в качестве атрибута в мой компонент, я внутри компонента вижу под именем this.props
       React.DOM.div( {className:'Answers'}, answersCode ),
     );
   },

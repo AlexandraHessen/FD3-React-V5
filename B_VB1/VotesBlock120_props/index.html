@@ -23,10 +23,15 @@
     ];
 
     ReactDOM.render(
-      React.createElement(VotesBlock,{question:questionText,answers:answersArr}), 
+      React.createElement(VotesBlock,{question:questionText,answers:answersArr}), //PROPS
       document.getElementById('container') 
     );
 
+    // ReactDOM.render(React-элемент, DOM-элемент)
+    // отрисовать созданный React-элемент внутри указанного DOM-элемента
+
+    // React.createElement(имя компонента, хэш с атрибутами (PROPS), содержимое)
+    // создать HTML-тег или разработанный нами React-компонент, передав ему указанные атрибуты
   </script>
 
 </body> 
