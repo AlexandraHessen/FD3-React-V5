@@ -12,12 +12,12 @@
   },
 
   freeAnswerTextChanged: function(EO) { 
-    console.log('VotesAnswer: текст свободного ответа изменён - '+EO.target.value); 
+    console.log('VotesAnswer: текст свободного ответа изменён - '+EO.target.value); //EO.target-объект у которого произшло событие, т.е. = input и value -его значение
   },
 
   render: function() {
 
-    if ( this.props.workMode==1 ) {
+    if ( this.props.workMode==1 ) { 
       return React.DOM.div(null,
         React.DOM.label({className:'VotesBlockAnswer'},
           React.DOM.input({type:'radio',value:this.props.code,name:'voteanswer'}),
@@ -25,6 +25,7 @@
           this.props.freeanswer
             ?React.DOM.input({type:'text',name:'votefreeanswer',className:'FreeAnswer',
               defaultValue:this.props.freeanswertext,onChange:this.freeAnswerTextChanged})
+              // onChange срабатывает при любом изменении и кроссбраузерное
             :null
         ),
       );

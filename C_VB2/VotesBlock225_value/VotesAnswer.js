@@ -23,7 +23,7 @@
             :null
         ),
       );
-    }
+    } 
     else {
       return React.DOM.div( {className:'VotesBlockAnswer'},
         React.DOM.span({className:'Count'},this.props.count),

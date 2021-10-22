@@ -28,3 +28,8 @@
   },
 
 });
+
+// return React.DOM.div( {className:'VotesBlock'}, 
+// React.DOM.div( {className:'Question'}, this.props.question ),
+// React.DOM.div( {className:'Answers'}, answersCode ),
+// );

@@ -12,16 +12,28 @@
         text: React.PropTypes.string.isRequired,
         freeanswer: React.PropTypes.bool,
       })
-    )
+    ),
+    deffreeanswertext: React.PropTypes.string.isRequired,
   },
 
   getInitialState: function() {
-    return { freeanswertext:'???' };
+    return { 
+      freeanswertext:this.props.deffreeanswertext,
+      cnt: 0,
+    };
   },
 
   freeAnswerTextChanged: function(fat) { 
     console.log('VotesBlock: текст свободного ответа изменён - '+fat); 
     this.setState( {freeanswertext:fat} );
+  },
+
+  cntPlus3: function() {
+    this.setState( (prevState, props) => { return {cnt:prevState.cnt+1}; } );
+    // prevState это текущий state, this.state не подходит т.к. он еще не изменился, 
+    // а нам в процессе обновления нужен актуальный state т.к. мы его наращиваем и плюсуем постепенно
+    this.setState( (prevState, props) => { return {cnt:prevState.cnt+1}; } );
+    this.setState( (prevState, props) => { return {cnt:prevState.cnt+1}; } );
   },
 
   render: function() {
@@ -36,7 +48,8 @@
     return React.DOM.div( {className:'VotesBlock'}, 
       React.createElement(VotesQuestion, {question:this.props.question} ),
       React.DOM.div( {className:'Answers'}, answersCode ),
-      React.DOM.div( null, this.state.freeanswertext ),
+      React.DOM.div( null, this.state.freeanswertext+" "+this.state.cnt ),
+      React.DOM.input( {type:'button',value:'+=3',onClick:this.cntPlus3} ),
     );
   },
 

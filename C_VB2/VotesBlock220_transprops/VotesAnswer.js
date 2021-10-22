@@ -6,7 +6,7 @@
     code: React.PropTypes.number.isRequired,
     count: React.PropTypes.number.isRequired,
     text: React.PropTypes.string.isRequired,
-    workMode: React.PropTypes.number.isRequired,
+    workMode: React.PropTypes.number.isRequired, // 1- прием голоса, 2- отображение результата
   },
 
   render: function() {
@@ -16,6 +16,7 @@
         React.DOM.label({className:'VotesBlockAnswer'},
           React.DOM.input({type:'radio',value:this.props.code,name:'voteanswer'}),
           React.DOM.span(null,this.props.text)
+          // положить input и span в один label позволяет пользователю выбирать вариант щелчком по тексту
         ),
       );
     }

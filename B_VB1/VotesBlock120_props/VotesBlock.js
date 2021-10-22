@@ -12,9 +12,11 @@ var VotesBlock = React.createClass({
 // все стандартные теги с маленькой буквы наши компоненты всегда с Большой
   displayName: 'VotesBlock',
 
+  // если props не передан оно сработает
   getDefaultProps: function() {
     return { question: "Вопрос ни о чём" }
   },
+  // эта запятая ОБЯЗАТЕЛЬНА!
 
   render: function() {
 
@@ -23,6 +25,7 @@ var VotesBlock = React.createClass({
       var answer=this.props.answers[a];
       var answerCode=        
         React.DOM.div({key:answer.code,className:'Answer'},
+        //key нельзя использовать индекс массива i
           React.DOM.span({className:'Count'},answer.count),
           React.DOM.span({className:'Text'},answer.text),
         );
@@ -38,5 +41,6 @@ var VotesBlock = React.createClass({
       React.DOM.div( {className:'Answers'}, answersCode ),
     );
   },
+  // эта запятая ОБЯЗАТЕЛЬНА!
 
 });

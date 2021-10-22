@@ -61,6 +61,7 @@
     return React.DOM.div( {className:'VotesBlock'}, 
       React.createElement(VotesQuestion, {question:this.props.question} ),
       React.DOM.div( {className:'Answers'}, answersCode ),
+      // условие аля if () ? else :
       ((this.state.workMode==1)&&this.state.selectedAnswerCode)
         ?React.DOM.input( {type:'button',value:'проголосовать',onClick:this.vote} )
         :null

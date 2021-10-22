@@ -12,26 +12,22 @@
         text: React.PropTypes.string.isRequired,
         freeanswer: React.PropTypes.bool,
       })
-    ),
-    deffreeanswertext: React.PropTypes.string.isRequired,
+    )
   },
 
   getInitialState: function() {
-    return { 
-      freeanswertext:this.props.deffreeanswertext,
-      cnt: 0,
-    };
+    return { freeanswertext:'???' };
   },
+
+// 1.	В getInitialState мы пишем начальное значение поля { freeanswertext:'???' }
+// 2.	В самом input в render return ставим в атрибуты в зависимости от стейста  freeanswertext:this.state.freeanswertext
+// 3.	При введении текста в input вызывается функция, которая меняет сохраняет введенный текст в стайте this.setState( {freeanswertext:fat}
+// Таким образом если мы изменим input то измениться state, если мы изменим state то измениться умолчательное значение input 
+
 
   freeAnswerTextChanged: function(fat) { 
     console.log('VotesBlock: текст свободного ответа изменён - '+fat); 
     this.setState( {freeanswertext:fat} );
-  },
-
-  cntPlus3: function() {
-    this.setState( (prevState, props) => { return {cnt:prevState.cnt+1}; } );
-    this.setState( (prevState, props) => { return {cnt:prevState.cnt+1}; } );
-    this.setState( (prevState, props) => { return {cnt:prevState.cnt+1}; } );
   },
 
   render: function() {
@@ -46,8 +42,7 @@
     return React.DOM.div( {className:'VotesBlock'}, 
       React.createElement(VotesQuestion, {question:this.props.question} ),
       React.DOM.div( {className:'Answers'}, answersCode ),
-      React.DOM.div( null, this.state.freeanswertext+" "+this.state.cnt ),
-      React.DOM.input( {type:'button',value:'+=3',onClick:this.cntPlus3} ),
+      React.DOM.div( null, this.state.freeanswertext ),
     );
   },
 

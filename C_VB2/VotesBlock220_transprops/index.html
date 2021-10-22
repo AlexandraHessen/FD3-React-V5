@@ -16,7 +16,8 @@
   <link rel="stylesheet" type="text/css" href="VotesQuestion.css" />
   <script src="VotesAnswer.js"></script>
   <link rel="stylesheet" type="text/css" href="VotesAnswer.css" />
-
+ <!-- при декомпазиции подключаем 2 JS файла  -->
+ 
   <script>
 
     var questionText='Как вы относитесь к программированию?';
@@ -27,7 +28,7 @@
     ];
 
     ReactDOM.render(
-      React.createElement(VotesBlock,{question:questionText,answers:answersArr,workMode:1}), 
+      React.createElement(VotesBlock,{question:questionText,answers:answersArr,workMode:1}), //// 1- прием голоса, 2- отображение результата
       document.getElementById('container') 
     );
 

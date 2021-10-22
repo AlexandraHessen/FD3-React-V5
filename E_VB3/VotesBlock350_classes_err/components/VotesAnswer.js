@@ -17,7 +17,9 @@ class VotesAnswer extends React.Component {
   };
 
   answerClicked(EO) {
-    //console.log('answerClicked: this = '+this);
+    console.log('answerClicked: this = '+this);
+    // this =null
+    // в строгом режиме this = null когда функция вызвана metod()
     this.props.cbSelected(this.props.code);
   }
 
@@ -33,8 +35,9 @@ class VotesAnswer extends React.Component {
         React.DOM.label({className:'VotesBlockAnswer'},
           React.DOM.input({type:'radio',value:this.props.code,name:'voteanswer',
             checked:(this.props.selectedAnswerCode==this.props.code),
-            onClick:this.answerClicked}),
-          React.DOM.span(null,this.props.text),
+            onClick:this.answerClicked}), //в данном случае мы не вызываем функция а только описываем ее, 
+          // поэтому она вызывается как answerClicked и следовательно this =null
+            React.DOM.span(null,this.props.text),
           this.props.freeanswer
             ?React.DOM.input({type:'text',name:'votefreeanswer',className:'FreeAnswer',
               defaultValue:this.props.freeanswertext,onChange:this.freeAnswerTextChanged,

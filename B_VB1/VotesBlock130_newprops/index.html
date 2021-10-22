@@ -30,10 +30,16 @@
         React.createElement(VotesBlock,{question:questionText,answers:answersArr}), 
         document.getElementById('container') 
       );
+
+    // ReactDOM.render(React-элемент, DOM-элемент)
+    // отрисовать созданный React-элемент внутри указанного DOM-элемента
+
+    // React.createElement(имя компонента, хэш с атрибутами (PROPS), содержимое)
+    // создать HTML-тег или разработанный нами React-компонент, передав ему указанные атрибуты
       
     }
 
-    buildVotesBlock();
+    buildVotesBlock(); 
 
     function changeQuestionText() {
       questionText='Как вы относитесь к фигурному катанию?';

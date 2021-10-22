@@ -1,6 +1,8 @@
 ﻿var React = require('react');
 
 require('./VotesBlock.css');
+// можно было записать в переменную 
+// var css=require('./VotesBlock.css');
 
 var VotesQuestion = require('./VotesQuestion');
 var VotesAnswer = require('./VotesAnswer');

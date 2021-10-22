@@ -19,7 +19,8 @@
     var answersCode=this.props.answers.map( v =>
       React.createElement(VotesAnswer, { key:v.code,
         text:v.text, count:v.count, code:v.code,
-        workMode:this.props.workMode } )
+        workMode:this.props.workMode } ) 
+        // пробросить / протянуть props когда компонент не использует props а только передает дочернему
     );
     return React.DOM.div( {className:'VotesBlock'}, 
       React.createElement(VotesQuestion, {question:this.props.question} ),
