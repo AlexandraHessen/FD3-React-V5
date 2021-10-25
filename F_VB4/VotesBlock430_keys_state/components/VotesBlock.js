@@ -83,6 +83,8 @@ class VotesBlock extends React.Component {
           (this.state.visibleQuestionNum==2) &&
           <VotesQuestion key={1} question={this.props.question} auxClassName="VotesQuestionBlue" />
         }
+        {/* если key одинаковые и ложим их в state то компонент не изменится т.к. нету мотода который меняет state а key одинаковый поеэто используется тот который был раньше положен */}
+        {/* если key вообще не указывать то react сам  последовательно присвоит ему разные key и каждый раз компонент будет перемонтирован */}
         <div className='Answers'>{answersCode}</div>
         {
           ((this.state.workMode==1)&&this.state.selectedAnswerCode) &&
