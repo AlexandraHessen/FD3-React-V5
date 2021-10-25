@@ -27,7 +27,11 @@ class VotesQuestion extends React.Component {
     console.log('componentDidUpdate');     
     if ( oldProps.auxClassName!==this.props.auxClassName )   
       this.setState({auxClassName:this.props.auxClassName}); // сработает при обновлении компонента
-  };
+//  если в state red, меняем на blue
+// приходят новые props с blue = компонент перерепндорится но все еще с red 
+// срабатывает componentDidUpdate мы видим что в пропсах blue ложим его в state
+// компонент второй раз перерендорится уже с blue
+    };
 
 }
 
