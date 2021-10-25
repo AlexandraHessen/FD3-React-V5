@@ -11,6 +11,10 @@ class VotesQuestion extends React.Component {
   
   render() {
     return <div className='VotesQuestion'>{this.props.question}</div>;
+    // можно писать так если большой return
+    // return (
+    //   <div className='VotesQuestion'>{this.props.question}</div>
+    // )
   }
 
 }

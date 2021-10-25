@@ -43,6 +43,8 @@ class VotesAnswer extends React.Component {
                 defaultValue={this.props.freeanswertext} onChange={this.freeAnswerTextChanged}
                 disabled={this.props.selectedAnswerCode!=this.props.code}
               />
+              // если (this.props.freeanswer) && true то выводится input 
+              // если (this.props.freeanswer) && false то false а false никак не отображается
             }
           </label>
         </div>

@@ -16,7 +16,7 @@ module.exports = {
     module:{ 
         rules:[
             { 
-                test: /\.jsx?$/, // какие файлы обрабатывать
+                test: /\.jsx?$/, // какие файлы обрабатывать JS и JSX 
                 exclude: /node_modules/, // какие файлы пропускать
                 use: { loader: "babel-loader" }
             },

@@ -27,7 +27,7 @@ class VotesBlock extends React.Component {
     workMode:this.props.startWorkMode,
   }
 
-  answerSelected = (code) => {
+  answerSelected = (code) => { //описываем всегда не методы а как СВОЙСТВО  содержащее стрелочную функции в качестве значения
     console.log('выбран ответ с кодом '+code);
     this.setState( {selectedAnswerCode:code} );
   }
