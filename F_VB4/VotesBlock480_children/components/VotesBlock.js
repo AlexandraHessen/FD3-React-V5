@@ -69,6 +69,9 @@ class VotesBlock extends React.Component {
         <ColorFrame color="red">
           <div className='Answers'>{answersCode}</div>
         </ColorFrame>
+        {/* <div style={{border:"dashed 1px "+this.props.color,padding:"10px"}}>
+          {this.props.children}
+        </div> */}
         {
           ((this.state.workMode==1)&&this.state.selectedAnswerCode) &&
           <input type='button' value='проголосовать' onClick={this.vote} />
