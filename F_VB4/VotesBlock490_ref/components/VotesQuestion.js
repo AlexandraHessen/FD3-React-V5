@@ -30,6 +30,7 @@ class VotesQuestion extends React.Component {
     return (
       <div>
         <input type="text" defaultValue="новый текст вопроса" ref={this.setNewTextRef} />
+        {/* ref нельзя использовать в функциональном стиле */}
         <input type="button" value="задать" onClick={this.setNewText} />
         <div className='VotesQuestion'>{this.state.question}</div>
       </div>
