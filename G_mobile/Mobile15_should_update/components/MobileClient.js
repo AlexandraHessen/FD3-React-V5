@@ -22,6 +22,10 @@ class MobileClient extends React.Component {
 
   shouldComponentUpdate = (newProps,newState) => {
     return (newProps.fio!=this.props.fio)||(newState.balance!=this.state.balance);
+    // если новое не равно старому возыращается true 
+    // т.е. компоненту надо перерисовываться? - true
+
+    // в функциональных компонентах не работает, только хуки
   };
 
   render() {
