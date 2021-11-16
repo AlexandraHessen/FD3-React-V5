@@ -61,7 +61,9 @@ class MobileCompany extends React.PureComponent {
     console.log("MobileCompany render");
 
     var clientsCode=this.state.clients.map( client => {
-        let FIO={fam:client.fam,im:client.im,otch:client.otch};
+        let FIO={fam:client.fam,im:client.im,otch:client.otch}; //{} литерал нового объекта => 
+        // КАЖДЫЙ раз когда вызыавется render создается новый объект ссылка на который никогда не равна старой =>
+        // PureComponent каждый раз получает новый объект и все всегда перерендарит
         return <MobileClient key={client.id} id={client.id} FIO={FIO} balance={client.balance} />;
       }
     );
