@@ -31,35 +31,40 @@ class MobileCompany extends React.PureComponent {
     this.setState({name:'Velcom'});
   };
   
+  /*
   setBalance = (clientId,newBalance) => {
-    let newClients=[...this.state.clients]; // копия самого массива клиентов
-    newClients.forEach( (c,i) => {
-      if ( c.id==clientId ) {
-      //if ( c.id==clientId && c.balance!=newBalance ) {
-        let newClient={...c}; // копия хэша изменившегося клиента
-        newClient.balance=newBalance;
-        newClients[i]=newClient;
+    let newClients=[...this.state.clients]; // копия массива клиентов
+    // ...  поверхностная копия (только массив элементов(ссылки на хэши)сами хэши не копировались)
+    newClients.forEach( (c,i) => {  
+      // if ( c.id==clientId ) { // 1. находим изменненного клиенты 
+
+      if ( c.id==clientId && c.balance!=newBalance ) { // 1. находим изменненного клиенты 
+
+        let newClient={...c}; // 2. копируем объект изменненного клиенты 
+        newClient.balance=newBalance; // 3. заменяем баланс изменненного клиента на измененный баланс
+        newClients[i]=newClient; // 4. заменяем в массиве копии клиентов, клиента на нового такого клиента с измененным балансом
       }
     } );
     this.setState({clients:newClients});
   };
+  */
 
-  /*
+
   setBalance = (clientId,newBalance) => {
     let changed=false;
-    let newClients=[...this.state.clients]; // копия самого массива клиентов
+    let newClients=[...this.state.clients]; // копия массива клиентов // ...  поверхностная копия (только массив элементов(ссылки на хэши)сами хэши не копировались)
     newClients.forEach( (c,i) => {
-      if ( c.id==clientId && c.balance!=newBalance ) {
-        let newClient={...c}; // копия хэша изменившегося клиента
-        newClient.balance=newBalance;
-        newClients[i]=newClient;
+      if ( c.id==clientId && c.balance!=newBalance ) { // 1. находим изменненного клиенты 
+        let newClient={...c}; // 2. копируем объект изменненного клиенты 
+        newClient.balance=newBalance;// 3. заменяем баланс копии изменненного клиента на измененный баланс
+        newClients[i]=newClient;// 4. заменяем в массиве копии клиентов, клиента на нового такого клиента с измененным балансом
         changed=true;
       }
     } );
     if ( changed )
       this.setState({clients:newClients});
   };
-  */
+
   
   setBalance1 = () => {
     this.setBalance(105,230);
