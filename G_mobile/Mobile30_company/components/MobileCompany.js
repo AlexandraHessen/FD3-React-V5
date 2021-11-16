@@ -29,19 +29,20 @@ class MobileCompany extends React.Component {
     if ( newState.clients.length!=this.state.clients.length )
       return true; // если количество клиентов изменилось - перерисовываем
     let clientsChanged=false; // из forEach нельзя сделать return - это будет return из функции forEach
+                              // поэтому сами создаеи эту доп переменную
     newState.clients.forEach( (newClient,i) => {
       let oldClient=this.state.clients[i];
       if ( oldClient.fio!=newClient.fio )
         clientsChanged=true; // если фамилия клиента изменилась - перерисовываем
-      if ( oldClient.balance!=newClient.balance )
-        clientsChanged=true; // если баланс клиента изменился - перерисовываем
-      /*
+      // if ( oldClient.balance!=newClient.balance )
+      //   clientsChanged=true; // если баланс клиента изменился - перерисовываем
+      
       // с балансом вот так было бы оптимальнее, но нарушаются принцип DRY, принцип единственной ответственности, инкапсуляция
       let oldActive=oldClient.balance>=0;
       let newActive=newClient.balance>=0;
       if ( oldActive!=newActive )
         clientsChanged=true; // если признак активности/блокировки клиента изменился - перерисовываем
-      */
+      
     } );
     if ( clientsChanged )
       return true;
