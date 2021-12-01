@@ -29,10 +29,12 @@ let withDataLoad = (fetchConfig,propName) => Component => {
       
           try {
             let response=await isoFetch(fetchConfig.URL, fetchConfig);
+            // response - идет разу ответ данных НЕ промис
             if (!response.ok) {
               throw new Error("fetch error " + response.status);
             }
             let data=await response.json();
+            // data - достать из ответа данные НЕ промис
             this.fetchSuccess(data);
           } 
           catch ( error )  {
