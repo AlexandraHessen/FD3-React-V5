@@ -15,6 +15,9 @@ class MobileCompany extends React.PureComponent {
     // конструктор должен быть лёгким и быстрым
   }
 
+
+// ---------------------- 1 ---------------------- //
+/* в componentDidMount делаем запрос на загрузку данных */
   componentDidMount() {
     this.loadData();
   }
@@ -25,10 +28,14 @@ class MobileCompany extends React.PureComponent {
     clients: [],
   };
 
+// ---------------------- 3 ---------------------- //
+/* ошибка при загрузке данных */
   fetchError = (errorMessage) => {
     console.error(showStr);
   };
 
+// ---------------------- 3 ---------------------- //
+/* полученные данные кладем в state */
   fetchSuccess = (loadedData) => {
     console.log(loadedData);
     this.setState({
@@ -38,22 +45,29 @@ class MobileCompany extends React.PureComponent {
     });
   };
 
+
+// ---------------------- 2 ---------------------- //
+/* функция загрузки данных */
   loadData = () => {
 
-    isoFetch("http://fe.it-academy.by/TestFetch.php", {
+    isoFetch("http://fe.it-academy.by/TestFetch.php", { //весь этот вызов isoFetch возвращает промис, который потом зарезолвится в те данные которые нам нужны
         method: 'post',
         headers: {
-            "Accept": "application/json",
+            "Accept": "application/json", // заголовок, зависит от реализации backend части 
         },
     })
+
+        // когда промис зарезолвится выполнить эту функцию
+        // response - результат isoFetch api резовниться не в чисто те данные которые нам нужны, это HTTP ответ 
+        // там также есть код ответа(404 200 500), заголовок...
         .then( response => { // response - HTTP-ответ
-            if (!response.ok)
+            if (!response.ok) //.ok значит ответ есть, нет ошибки
                 throw new Error("fetch error " + response.status); // дальше по цепочке пойдёт отвергнутый промис
             else
-                return response.json(); // дальше по цепочке пойдёт промис с пришедшими по сети данными
+                return response.json(); // response.json() - данные достатые из HTTP-ответа, дальше по цепочке пойдёт промис с пришедшими по сети данными
         })
         .then( data => {
-            this.fetchSuccess(data); // передаём полезные данные в fetchSuccess, дальше по цепочке пойдёт успешный пустой промис
+            this.fetchSuccess(data); // data- нажные данные, передаём нужные данные в fetchSuccess, дальше по цепочке пойдёт успешный пустой промис
         })
         .catch( error => {
             this.fetchError(error.message);
