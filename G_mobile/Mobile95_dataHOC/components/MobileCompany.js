@@ -9,6 +9,8 @@ class MobileCompany extends React.PureComponent {
 
   static propTypes = {
     companyData: PropTypes.object.isRequired,
+    // пишем в компоненте  companyData как обычно, хотя данные придут позже чем отрендарится этот компонент
+    // потому что наш HOC по загрузке дынных позаботиться о том чтобы вообще не рендарить компонент пока не придут данные
   };
 
   render() {
