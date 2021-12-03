@@ -26,6 +26,8 @@ class MobileCompany extends React.Component {
 
   shouldComponentUpdate = (newProps,newState) => {
     return !(deepEqual(newProps,this.props)&&deepEqual(newState,this.state));
+    // не сравниваем как в прошлый раз фио, баланс и т.д.
+    // а сразу сравниваем props и state
   };
   
   setName1 = () => {
