@@ -11,6 +11,7 @@ const initState={
 // за который отвечает данный редьюсер
 
 function countersReducer(state=initState,action) {
+  // теперь в action будет не только type но и counterid
   switch (action.type) {
 
     case COUNTER_BUTTON_CREATE: {
@@ -33,6 +34,7 @@ function countersReducer(state=initState,action) {
       let newState={...state,
         cnts:{...state.cnts,
           [action.counterid]:state.cnts[action.counterid]+action.addvalue
+          // счетчик: его старое значение меняем на прилетевшее
         }
       };
       console.log('state после обработки редьюсером:',newState);
