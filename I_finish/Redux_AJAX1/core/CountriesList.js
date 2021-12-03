@@ -16,6 +16,9 @@ class CountriesList extends React.PureComponent {
     this.props.dispatch( countriesLoadingAC() ); // переводим раздел countries стора в состояние "загружается"
 
     isoFetch("http://fe.it-academy.by/Examples/net_city/countries.json")
+    // isoFetch - работает с промисами
+    // запросить json по ссылке
+    // когда будет решен промис выполнить .then...
         .then( (response) => { // response - HTTP-ответ
             if (!response.ok) {
                 let Err=new Error("fetch error " + response.status);
@@ -48,6 +51,8 @@ class CountriesList extends React.PureComponent {
       <ul>
         {
           this.props.countries.data.map( (countryInfo,index) => <li key={index}>{countryInfo[1]}</li> )
+          // this.props.countries / весь раздел Redux 
+          // this.props.countries.data - список стран
         }
       </ul>
     );
