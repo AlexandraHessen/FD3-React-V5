@@ -20,9 +20,9 @@ ReactDOM.render(
 );
 
 
-ReactDOM.render(
-  React.createElement(VotesBlock,{question:questionText,answers:answersArr,
-    deffreeanswertext: defaultFreeAnswerText,startWorkMode:1}), 
-  document.getElementById('container') 
-);
+// ReactDOM.render(
+//   React.createElement(VotesBlock,{question:questionText,answers:answersArr,
+//     deffreeanswertext: defaultFreeAnswerText,startWorkMode:1}), 
+//   document.getElementById('container') 
+// );
 
