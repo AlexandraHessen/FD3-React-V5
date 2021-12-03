@@ -53,3 +53,4 @@ const mapStateToProps = function (state) {
 };
 
 export default connect(mapStateToProps)(CounterButton);
+// экспортируем не этот класс CounterButton а уже обвернутый
