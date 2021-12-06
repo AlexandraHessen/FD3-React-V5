@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import './PagesLinks.css';
 
 class PagesLinks extends React.Component {
-          
+//  есть всегда, навигация страниц  
   render() {
 
     return (
@@ -15,7 +15,7 @@ class PagesLinks extends React.Component {
         <NavLink to="/clients" className="PageLink" activeClassName="ActivePageLink">Клиенты</NavLink>
       </div>
     );
-    
+    // exact - если в Router пишем exact то и в NavLink надо писать
   }
 
 }

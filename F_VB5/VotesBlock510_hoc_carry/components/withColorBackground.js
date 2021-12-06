@@ -10,12 +10,17 @@ function withColorBackground(color) {
     };
 }
 
+
+//  Тоже самое в стрелочном стиле
 /*
-let withColorBackground = color => Component => props =>
+let withColorBackground = color => Component => props =>{
+// let withColorBackground = (color, width) => Component => props =>
     <div style={{backgroundColor:color}}>
       <Component {...props} />
     </div>
 ;
+}
+
 */
 
 export { withColorBackground };

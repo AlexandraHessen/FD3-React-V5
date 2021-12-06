@@ -7,6 +7,9 @@ import VotesQuestion from './VotesQuestion';
 import VotesAnswer from './VotesAnswer';
 import { withColorBackground } from './withColorBackground';
 
+let VotesQuestionWithBG=withColorBackground(VotesQuestion);
+// let VotesAnswerWithBG=withColorBackground(VotesAnswer);
+
 class VotesBlock extends React.Component {
 
   static propTypes = {
@@ -51,8 +54,10 @@ class VotesBlock extends React.Component {
   }
 
   render() {
-
+    // лучше обявлять не в render а вверху
+    // let VotesAnswerWithBG=withColorBackground(VotesAnswer);
     var answersCode=this.props.answers.map( v =>
+      // <VotesAnswerWithBG key={v.code}
       <VotesAnswer key={v.code}
         text={v.text} count={v.count} code={v.code}
         freeanswer={v.freeanswer} freeanswertext={this.state.freeanswertext}
@@ -62,8 +67,6 @@ class VotesBlock extends React.Component {
         workMode={this.state.workMode}
       />
     );
-
-    let VotesQuestionWithBG=withColorBackground(VotesQuestion);
 
     return (
       <div className='VotesBlock'>

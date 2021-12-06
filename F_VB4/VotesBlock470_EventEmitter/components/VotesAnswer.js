@@ -19,6 +19,10 @@ class VotesAnswer extends React.Component {
     selectedAnswerCode: PropTypes.number, // может быть null, пока ни один ответ не выбран
   };
 
+  // answerClicked = (EO) => {
+  //   this.props.cbSelected(this.props.code);
+  // }
+
   answerClicked = (EO) => {
     //this.props.cbSelected(this.props.code);
     voteEvents.emit('EAnswerClicked',this.props.code);

@@ -17,6 +17,8 @@ class VotesQuestion extends React.Component {
 
   setNewTextRef = (ref) => {
     this.newTextRef=ref;
+    console.log (ref)
+    console.log (this.newTextRef)
   };
 
   setNewText = () => {

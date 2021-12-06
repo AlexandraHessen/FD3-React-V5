@@ -64,6 +64,10 @@ class VotesBlock extends React.Component {
     );
 
     let VotesQuestionWithBG=withColorBackground("cyan")(VotesQuestion);
+    // Каррирование 
+    // можно разорвать
+    // сначала выше вызвать let withCyanBackground=withColorBackground("cyan")
+    // а потом уже тут let VotesQuestionWithBG=withCyanBackground(VotesQuestion)
 
     return (
       <div className='VotesBlock'>

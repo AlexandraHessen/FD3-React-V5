@@ -8,10 +8,10 @@ import PagesRouter from './pages/PagesRouter';
 import PagesLinks from './pages/PagesLinks';
 
 ReactDOM.render( 
-  <BrowserRouter>
+  <BrowserRouter> 
     <div>
-      <PagesLinks />
-      <PagesRouter />
+      <PagesLinks /> {/* есть всегда, навигация страниц  */}
+      <PagesRouter /> {/* все остальное, то что изменяется и зависить от URL  */}
     </div>
   </BrowserRouter>
 , document.getElementById('container') );
