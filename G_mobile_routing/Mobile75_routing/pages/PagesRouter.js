@@ -17,6 +17,8 @@ class PagesRouter extends React.Component {
         <Route path="/company" component={Page_Company} />
         <Route path="/clients" component={Page_Clients} />
         <Route path="/client/:clid" component={Page_Client} />
+        {/* Page_Client в props получит под именем param то что было в URL после /слеша
+        т.е. например код клиента и отрендарит этого клиента */}
       </div>
     );
     
