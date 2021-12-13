@@ -1,5 +1,7 @@
 ﻿import { COUNTER_BUTTON_CREATE, COUNTER_BUTTON_ADD } from './countersAC';
+//название action type
 
+// начальный state
 const initState={
 
   // ключ - идентификатор счётчика, значение - число нажатий
@@ -19,9 +21,13 @@ function countersReducer(state=initState,action) {
       // редьюсер ВСЕГДА должен возвращаеть новый state а не изменять старый!
       console.log('action:',action);
       console.log('state до обработки редьюсером:',state);
-      let newState={...state,
-        cnts:{...state.cnts,
-          [action.counterid]:0
+
+      
+//-------------- ВНЕСЕНИЕ ИММУТАБЕЛЬНЫХ ИЗМЕНЕНИЙ В ХЭШ --------------//
+
+      let newState={...state, //старый state
+        cnts:{...state.cnts, //заменить старые счетчики на теже + новый с новым id 
+          [action.counterid]:0 //+ новый с новым id 
         }
       };
       console.log('state после обработки редьюсером:',newState);
@@ -31,16 +37,21 @@ function countersReducer(state=initState,action) {
     case COUNTER_BUTTON_ADD: {
       console.log('action:',action);
       console.log('state до обработки редьюсером:',state);
-      let newState={...state,
-        cnts:{...state.cnts,
-          [action.counterid]:state.cnts[action.counterid]+action.addvalue
-          // счетчик: его старое значение меняем на прилетевшее
+      let newState={...state, //старый state
+        cnts:{...state.cnts, //заменить старые счетчики на теже 
+          // ПРИЛЕТИТ какой счетчик (counterid) изменить и насколько(addvalue)
+          [action.counterid]:state.cnts[action.counterid]+action.addvalue //+
+          //[action.counterid] - В нужном счетчике 
+          // state.cnts[action.counterid] - его старое значение 
+          // action.addvalue - изменить на прилетевшее
         }
       };
       console.log('state после обработки редьюсером:',newState);
       return newState;
     }
 
+
+    //обязатнльно пишем на тот случай если пришел action который не относится к этому reducery
     default:
       return state;
   }
