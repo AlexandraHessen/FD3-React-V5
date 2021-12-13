@@ -1,6 +1,10 @@
 ﻿const COUNTER_BUTTON_CREATE='COUNTER_BUTTON_CREATE';
 const COUNTER_BUTTON_ADD='COUNTER_BUTTON_ADD';
+//название action type
 
+
+//функция для dispatch (из файла CounterButton) которая возвращает хэш с action type 
+// называется ActionCreater
 const counterButton_create=function(counterid) {
   return {
     type: COUNTER_BUTTON_CREATE,
