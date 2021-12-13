@@ -1,8 +1,11 @@
 ﻿import React from 'react';
 import { Provider } from 'react-redux';
+//оборачиваем все приложение теги
 import { createStore } from 'redux';
+//создаем store и привязываем его к редуюсеру
 
 import combinedReducer from '../redux/reducers.js';
+//combinedReducer файл со всеми редьсерами
 import CounterButton from '../components/CounterButton/CounterButton';
 
 let store=createStore(combinedReducer);
