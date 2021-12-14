@@ -10,17 +10,23 @@ class CounterButton extends React.PureComponent {
 
   static propTypes = {
     counterid: PropTypes.number.isRequired, // передано из родительского компонента
-    counters: PropTypes.object.isRequired, // передано из Redux
+    counters: PropTypes.object.isRequired, // передано из Redux (все счетчики, хэш со счетчиками)
   };
 
   componentWillMount() {
     // изначально счётчика с идентификатором counterid нет
     // создадим
     this.props.dispatch( counterButton_create(this.props.counterid) );
+    // раньше this.props.dispatch( { type:"INC" } );
+    // теперь мы вызываем функцию из файла с экшенами которая возвращает такой хэш
+    //  {type: COUNTER_BUTTON_CREATE, counterid:counterid}
   }
 
   incCounter = () => {
     this.props.dispatch( counterButton_add(this.props.counterid,1) );
+    // раньше this.props.dispatch( { type:"COUNTER_BUTTON_ADD" } );
+    // теперь мы вызываем функцию из файла с экшенами которая возвращает такой хэш
+    //  {    type: COUNTER_BUTTON_ADD, counterid:counterid, addvalue:addvalue,}
   }
 
   decCounter = () => {
