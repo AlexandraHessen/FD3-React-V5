@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-// createStore - создаем Redax
+// createStore - создаем store хранилище Redax один раз
 
 import combinedReducer from '../redux/reducers.js';
 import CountriesList from '../core/CountriesList';
