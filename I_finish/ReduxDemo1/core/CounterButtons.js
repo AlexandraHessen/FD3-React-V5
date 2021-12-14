@@ -43,7 +43,7 @@ const mapStateToProps = function (state) {
 // connect в качестве аргумента дожен получить хэш, который говорит 
 // что из Redux под какими props должно прилететь
 const CounterButtons = connect(mapStateToProps)(intCounterButtons);
-
+export default CounterButtons;
 
 //---------------- 2 Вариант ----------------//
 // можно вообще не указывать mapStateToProps
@@ -70,6 +70,5 @@ const CounterButtons = connect(mapStateToProps)(intCounterButtons);
 // позволяет React подписаться на Redux 
 // connect в качестве аргумента дожен получить хэш, который говорит 
 // что из Redux под какими props должно прилететь
-const CounterButtons = connect()(intCounterButtons);
+// const CounterButtons = connect()(intCounterButtons);
 
-export default CounterButtons;
